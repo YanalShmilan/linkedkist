@@ -1,62 +1,35 @@
-class Node {
-  constructor(data, nextNode = null) {
-    this.data = data;
-    this.nextNode = nextNode; // our link
+/*
+-Create a function that takes a number as an argument. 
+-Adds up all the numbers from 1 to the number you passed to the function. 
+-For example, if the input is 6, your function should return 21 because 1 + 2 + 3 + 4 + 5 + 6 = 21.
+*/
+
+const addUp = (num) => {
+  i = 0;
+  let result = 0;
+  while (i <= num) {
+    result = result + i;
+    i++;
   }
-}
+  return result;
+};
 
-class LinkedList {
-  constructor(data, nextNode) {
-    this.headNode = new Node(data, nextNode);
-  }
+//Test your solution
 
-  addBeginning = (newData) => {
-    const newNode = new Node(newData);
-    newNode.nextNode = this.headNode;
-    this.headNode = newNode;
-  };
+console.log(addUp(6)); //Should return 21
+console.log(addUp(13)); //Should return 91
+console.log(addUp(58)); //Should return 1711
+console.log(addUp(620)); //Should return 192510
 
-  removeNode = (data) => {
-    let currentNode = this.headNode;
-    if (currentNode.data === data) {
-      this.headNode = currentNode.nextNode; // if we want to remove the head
-    } else {
-      while (currentNode) {
-        // if we want to remove anything else
-        let next = currentNode.nextNode;
-        if (next.data === data) {
-          currentNode.nextNode = next.nextNode;
-          currentNode = null;
-        } else {
-          currentNode = next; // if the data is not the one we want to delete, we jump into the next node
-        }
-      }
-    }
-  };
+/* 
+Write a function that always returns 5
+*** YOU CANNOT USE ANY OF THE FOLLOWING CHARACTERS: 0123456789*+-/ ***
+*/
+let y = ['a', 'b', 'c', 'd', 'e'];
+const returnFive = () => {
+  return y.length;
+};
 
-  get dataAsString() {
-    let dataString = '';
-    let currentNode = this.headNode;
-    while (currentNode) {
-      //   console.log(currentNode.data);
-      dataString = dataString + `${currentNode.data} \n`;
-      currentNode = currentNode.nextNode;
-    }
-    // console.log("heeelo", dataString);
-    return dataString;
-  }
-}
+//Test your solution
 
-const nodeOne = new Node('yousef');
-const myList = new LinkedList('abdallah', nodeOne);
-
-myList.addBeginning('Esraa');
-myList.addBeginning('Wafaa');
-
-console.log(myList.dataAsString);
-
-myList.removeNode('Esraa');
-console.log(myList.dataAsString);
-
-myList.removeNode('Wafaa');
-console.log(myList.dataAsString);
+console.log(returnFive()); // Should return 5

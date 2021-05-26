@@ -18,7 +18,7 @@ class LinkedList {
   };
 
   traverse = () => {
-    let cur = this.head;
+    let cur = this.headNode;
     while (cur) {
       console.log(`year : ${cur.year} , highlight : ${cur.highlight}`);
       cur = cur.nextNode;
@@ -26,15 +26,15 @@ class LinkedList {
   };
 
   insertHig = (age) => {
-    let cur = this.head;
-    while (cur.age < age) {
-      let curAge = cur.age + 1;
-      if (cur.nextNode && cur.nextNode.age === curAge) {
+    let cur = this.headNode;
+    while (cur.year < age) {
+      let curAge = cur.year + 1;
+      if (cur.nextNode && cur.nextNode.year === curAge) {
         cur = cur.nextNode;
       } else {
-        let highlight = prompt(`Enter highlights for year : ${curAge.age}`);
+        let highlight = prompt(`Enter highlights for year : ${curAge}`);
         let newNode = new Node(curAge, highlight, cur.nextNode);
-        cur.newNode = newNode;
+        cur.nextNode = newNode;
         cur = newNode;
       }
     }
@@ -45,3 +45,4 @@ ageList.insertBeg(3, 'i started walking');
 ageList.insertBeg(1, 'i was born');
 let age = prompt('Enter Your Age');
 ageList.insertHig(age);
+ageList.traverse();
