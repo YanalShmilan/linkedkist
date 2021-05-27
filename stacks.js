@@ -4,9 +4,6 @@ class Node {
     this.number = number;
     this.nextNode = nextNode;
   }
-  getData() {
-    return `${this.color} - ${this.number}`;
-  }
 }
 
 class Stack {
