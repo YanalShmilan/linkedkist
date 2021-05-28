@@ -63,8 +63,8 @@ class Queue {
 
 const rideQueue = new Queue(4);
 
-groups = [2, 4, 3, 13, 7, 8];
-console.log(rideQueue.waitingTime);
+groups = [2, 4, 13, 3, 7, 8];
+console.log('waiting time: ' + rideQueue.waitingTime + ' mins');
 
 groups.forEach((group) => {
   if (!rideQueue.isFull()) {
@@ -77,8 +77,8 @@ groups.forEach((group) => {
   }
 });
 
-console.log(rideQueue.waitingTime);
+console.log('waiting time: ' + rideQueue.waitingTime + ' mins');
 
 rideQueue.dequeue();
-console.log(rideQueue.peek());
-console.log(rideQueue.waitingTime);
+console.log('the next groupSize in the line: ' + rideQueue.peek());
+console.log('waiting time: ' + rideQueue.waitingTime + ' mins');
