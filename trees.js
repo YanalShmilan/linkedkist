@@ -15,8 +15,13 @@ class TreeNode {
         console.log(`added ${node.data} to ${parent}`);
         return;
       }
+      if (currentNode.data === parent && currentNode.children.length === 2) {
+        console.log('parent has 2 children');
+        return;
+      }
       nodes = [...nodes, ...currentNode.children];
     }
+    console.log('parent does not exist');
   };
 }
 
@@ -33,6 +38,10 @@ arr = [
 ];
 
 arr.forEach((a) => {
+  if (a === 'done') {
+    console.log(a);
+    return;
+  }
   let ar = a.split(' ');
   const childOne = new TreeNode(ar[0]);
   root.addChild(childOne, ar[1]);
